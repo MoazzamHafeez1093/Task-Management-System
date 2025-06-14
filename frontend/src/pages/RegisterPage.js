@@ -14,7 +14,7 @@ const RegisterPage = () => {
     try {
       const success = await register(username, email, password);
       if (success) {
-        navigate('/login');
+        navigate('/dashboard');
       }
     } catch (error) {
       console.error('Registration error:', error);

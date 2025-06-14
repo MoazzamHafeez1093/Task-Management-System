@@ -14,6 +14,7 @@ const LoginPage = () => {
     try {
       const success = await login(email, password);
       if (success) {
+        console.log('Login successful, navigating to /dashboard');
         navigate('/dashboard');
       }
     } catch (error) {

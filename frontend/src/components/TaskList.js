@@ -10,7 +10,7 @@ const TaskList = ({ tasks, onUpdate, onDelete, onToggleStatus, onReorder }) => {
   const [allUsers, setAllUsers] = useState([]);
   
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/auth/users`).then(res => setAllUsers(res.data)).catch(() => setAllUsers([]));
+    axios.get('/api/auth/users').then(res => setAllUsers(res.data)).catch(() => setAllUsers([]));
   }, []);
 
   const filteredTasks = tasks.filter(task => {
