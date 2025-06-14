@@ -31,10 +31,10 @@ const TaskForm = ({ initial = {}, onSubmit, loading, error }) => {
     // Fetch all users for sharing dropdown
     axios.get('/api/auth/users').then(res => {
       setAllUsers(res.data);
-      console.log('Fetched users for sharing:', res.data);
+      // console.log('Fetched users for sharing:', res.data);
     }).catch((err) => {
       setAllUsers([]);
-      console.error('Error fetching users for sharing:', err);
+      // console.error('Error fetching users for sharing:', err);
     });
   }, []);
 

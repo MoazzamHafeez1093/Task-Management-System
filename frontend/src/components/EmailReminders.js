@@ -12,18 +12,6 @@ const EmailReminders = () => {
     .filter((task) => !task.reminderSent && task.dueDate && new Date(task.dueDate) > now)
     .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
-  // Helper to render sharedWith info
-  const renderSharedWith = (sharedWith) => {
-    if (!Array.isArray(sharedWith) || sharedWith.length === 0) return null;
-    // Only show user objects with username/email
-    const users = sharedWith.filter(u => typeof u === 'object' && (u.username || u.email));
-    if (users.length > 0) {
-      return users.map(u => u.username || u.email).join(', ');
-    }
-    // If no user objects, fallback to IDs (hashes)
-    return '';
-  };
-
   // Helper to render sharedWith badges
   const renderSharedWithBadges = (sharedWith) => {
     if (!Array.isArray(sharedWith) || sharedWith.length === 0) return null;

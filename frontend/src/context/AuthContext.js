@@ -56,14 +56,14 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      console.log('Attempting registration with:', { username, email });
+      // console.log('Attempting registration with:', { username, email });
       const response = await axios.post('/auth/register', {
         username,
         email,
         password
       });
 
-      console.log('Registration response:', response.data);
+      // console.log('Registration response:', response.data);
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
       toast.success('Registration successful!');
       return true;
     } catch (error) {
-      console.error('Registration error:', error.response?.data || error.message);
+      // console.error('Registration error:', error.response?.data || error.message);
       const errorMessage = error.response?.data?.message || 'Registration failed';
       toast.error(errorMessage);
       return false;
@@ -83,13 +83,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      console.log('Attempting login with:', { email });
+      // console.log('Attempting login with:', { email });
       const response = await axios.post('/auth/login', {
         email,
         password
       });
 
-      console.log('Login response:', response.data);
+      // console.log('Login response:', response.data);
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
@@ -100,7 +100,7 @@ export const AuthProvider = ({ children }) => {
       toast.success('Login successful!');
       return true;
     } catch (error) {
-      console.error('Login error:', error.response?.data || error.message);
+      // console.error('Login error:', error.response?.data || error.message);
       const errorMessage = error.response?.data?.message || 'Login failed';
       toast.error(errorMessage);
       return false;

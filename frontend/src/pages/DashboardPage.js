@@ -9,12 +9,8 @@ import ProfileDropdown from "../components/ProfileDropdown";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable';
 import { useToast } from '../context/ToastContext';
-import { useAuth } from '../context/AuthContext';
-import { useTasks } from '../context/TaskContext';
-import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import EmailReminders from '../components/EmailReminders';
-import { FaUserCircle } from 'react-icons/fa';
 
 // Lazy load PDF functionality
 const PDFExport = React.lazy(() => import('../components/PDFExport'));
@@ -147,11 +143,6 @@ const DashboardPage = () => {
       </div>
     );
   }
-
-  // DEBUG LOGS
-  console.log('tasks from context:', tasks);
-  console.log('filteredTasks:', filteredTasks);
-  console.log('user from context:', user, 'type:', typeof user, 'isArray:', Array.isArray(user), 'isReactElement:', user && user.$$typeof);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start fade-in bg-gradient-to-br from-orange-100 via-cyan-100 to-white" style={{ paddingTop: '2rem' }}>
