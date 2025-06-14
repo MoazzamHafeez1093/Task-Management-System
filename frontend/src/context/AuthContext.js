@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (username, email, password) => {
     try {
       // console.log('Attempting registration with:', { username, email });
-      const response = await axios.post('/auth/register', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
         username,
         email,
         password
@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       // console.log('Attempting login with:', { email });
-      const response = await axios.post('/auth/login', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
         email,
         password
       });

@@ -29,7 +29,7 @@ const TaskForm = ({ initial = {}, onSubmit, loading, error }) => {
 
   useEffect(() => {
     // Fetch all users for sharing dropdown
-    axios.get('/api/auth/users').then(res => {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/auth/users`).then(res => {
       setAllUsers(res.data);
       // console.log('Fetched users for sharing:', res.data);
     }).catch((err) => {
