@@ -11,6 +11,7 @@ import autoTable from 'jspdf-autotable';
 import { useToast } from '../context/ToastContext';
 import Spinner from '../components/Spinner';
 import EmailReminders from '../components/EmailReminders';
+import { useAuth } from "../context/AuthContext";
 
 // Lazy load PDF functionality
 const PDFExport = React.lazy(() => import('../components/PDFExport'));
