@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5a623 0%, #f76b1c 50%, #36d1c4 100%);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.7s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button styles */
+.btn {
+  background: linear-gradient(90deg, #36d1c4 0%, #f5a623 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(54, 209, 196, 0.15);
+}
+.btn:hover {
+  box-shadow: 0 4px 16px rgba(247, 107, 28, 0.2);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Card styles */
+.card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(54, 209, 196, 0.12);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(247, 107, 28, 0.18);
+}

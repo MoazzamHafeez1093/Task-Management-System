@@ -1,0 +1,48 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import AuthForm from '../components/AuthForm';
+import Spinner from '../components/Spinner';
+
+const LoginPage = () => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (email, password) => {
+    setLoading(true);
+    try {
+      const success = await login(email, password);
+      if (success) {
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center fade-in">
+      <div className="max-w-md w-full card">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Sign in to your account</h2>
+          <p className="text-sm text-gray-600">
+            Or{' '}
+            <Link to="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
+              create a new account
+            </Link>
+          </p>
+        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <AuthForm type="login" onSubmit={handleLogin} />
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage; 
